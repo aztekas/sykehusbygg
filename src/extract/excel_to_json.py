@@ -5,6 +5,12 @@ from pathlib import Path
 import mjooln as mj
 
 
+fo = mj.File(__file__).folder().parent().parent()
+data_fo = fo / "data"
+katalog_fi = fo / "resource" * "Standardromkatalog v4.0-04.11.2025.xlsx"
+STANDARDROMKATALOGEN_JSON = fo / "data" * "standardromkatalogen.json"
+
+
 def excel_to_json(excel_path, output_path=None):
     excel_path = Path(excel_path)
     if not excel_path.exists():
@@ -34,10 +40,8 @@ def excel_to_json(excel_path, output_path=None):
 
 
 if __name__ == "__main__":
-    fo = mj.File(__file__).folder().parent().parent()
-    data_fo = fo / "data"
-    katalog_fi = fo / "resource" * "Standardromkatalog v4.0-04.11.2025.xlsx"
-    json_fi = fo / "data" * "standardromkatalogen.json"
 
-    if not json_fi.exists():
-        excel_to_json(katalog_fi, json_fi)
+    if not STANDARDROMKATALOGEN_JSON.exists():
+        excel_to_json(katalog_fi, STANDARDROMKATALOGEN_JSON)
+    else:
+        print("JSON already generated")
