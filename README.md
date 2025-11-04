@@ -13,7 +13,7 @@ PoC/MVP på en RAG for standardromkatalogen mm
         brew install pipx
         pipx ensurepath
 
-    On Windows and Linux follow these [instructions](https://pipx.pypa.io/stable/installation/)
+    On Windows and Linux follow these [instructions](https://pipx.pypa.io/stable/installation/) (scroll down a bit)
 
     
 2. Install uv 

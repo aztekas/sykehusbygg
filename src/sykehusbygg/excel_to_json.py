@@ -2,13 +2,12 @@ import pandas as pd
 import json
 import sys
 from pathlib import Path
-import mjooln as mj
 
 
-fo = mj.File(__file__).folder().parent().parent()
+fo = Path(__file__).parent.parent.parent
 data_fo = fo / "data"
-katalog_fi = fo / "resource" * "Standardromkatalog v4.0-04.11.2025.xlsx"
-STANDARDROMKATALOGEN_JSON = fo / "data" * "standardromkatalogen.json"
+katalog_fi = fo / "resource" / "Standardromkatalog v4.0-04.11.2025.xlsx"
+STANDARDROMKATALOGEN_JSON = fo / "data" / "standardromkatalogen.json"
 
 
 def excel_to_json(excel_path, output_path=None):
