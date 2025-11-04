@@ -1,6 +1,5 @@
 import pandas as pd
 import json
-import sys
 from pathlib import Path
 
 
@@ -35,7 +34,7 @@ def excel_to_json(excel_path, output_path=None):
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ JSON written to: {output_path}")
+    print(f"✅ ✅ ✅ JSON written to: {output_path}")
 
 
 if __name__ == "__main__":
@@ -43,5 +42,5 @@ if __name__ == "__main__":
     if not STANDARDROMKATALOGEN_JSON.exists():
         excel_to_json(katalog_fi, STANDARDROMKATALOGEN_JSON)
     else:
-        print("JSON already generated")
+        print("✅ JSON already generated")
 
