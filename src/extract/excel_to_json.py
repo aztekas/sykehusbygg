@@ -45,3 +45,4 @@ if __name__ == "__main__":
         excel_to_json(katalog_fi, STANDARDROMKATALOGEN_JSON)
     else:
         print("JSON already generated")
+

@@ -1,0 +1,3 @@
+from extract.excel_to_json import STANDARDROMKATALOGEN_JSON
+
+print(STANDARDROMKATALOGEN_JSON)
