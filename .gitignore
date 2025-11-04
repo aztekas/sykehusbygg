@@ -208,3 +208,6 @@ __marimo__/
 
 # Data folder (data should be generated from resource)
 data/
+
+# Mac (Finder metadata)
+.DS_Store
