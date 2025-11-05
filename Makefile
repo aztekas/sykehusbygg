@@ -28,7 +28,7 @@ lint:
 	@echo "Running ruff linter with fix..."
 	uv run ruff check src tests --fix
 
-lint-and-commit: sync ensure-clean-git lint
+lint-and-commit: ensure-clean-git lint
 	@echo "Committing ruff linter fixes if any..."
 	@git diff --quiet || git commit -am "Apply Ruff linter fixes"
 
@@ -40,7 +40,7 @@ format:
 	@echo "Running ruff black formatting"
 	uv run ruff format src tests
 
-format-and-commit: sync ensure-clean-git format
+format-and-commit: ensure-clean-git format
 	@echo "Committing ruff black formatting fixes if any..."
 	@git diff --quiet || git commit -am "Apply Ruff black formatting fixes"
 
