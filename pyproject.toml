@@ -25,5 +25,5 @@ dev = [
 
 # This sections makes the uv sync command build your package in editable mode -- which means imports works smoothly
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["uv_build"]
+build-backend = "uv_build"
