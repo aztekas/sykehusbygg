@@ -32,7 +32,15 @@ PoC/MVP på en RAG for standardromkatalogen mm
     - Install all necessary packages
     - Build the package `sykehusbygg` in editable mode
 
+### Tools
 
+#### Makescript
+
+Run the help command to see available makescripts
+```
+make help
+```
+Alternatively, open [Makefile](Makefile)
 ### Introduction
 
 A short introduction to RAG concepts can be found [here](src/tutorial/README.md)
