@@ -17,13 +17,16 @@ dependencies = [
 [dependency-groups]
 # Packages in dev will be installed with uv sync, but not included in package
 dev = [
-    "black>=25.9.0",
     "mypy>=1.18.2",
     "pytest>=7.2.0",
-    "ruff>=0.14.3",
+    "ruff>=0.14.3",  # Ruff includes the black formatter
 ]
 
 # This sections makes the uv sync command build your package in editable mode -- which means imports works smoothly
 [build-system]
 requires = ["uv_build"]
 build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
