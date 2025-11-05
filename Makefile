@@ -38,7 +38,7 @@ ci-lint:
 
 format:
 	@echo "Running ruff black formatting"
-	uv run ruff format src tests --fix
+	uv run ruff format src tests
 
 format-and-commit: sync ensure-clean-git format
 	@echo "Committing ruff black formatting fixes if any..."
