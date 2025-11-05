@@ -2,9 +2,9 @@
 
 PoC/MVP på en RAG for standardromkatalogen mm
 
-# Development
+## Development
 
-## Setup
+### Setup
 
 1. Install `pipx` 
 
@@ -33,7 +33,7 @@ PoC/MVP på en RAG for standardromkatalogen mm
     - Build the package `sykehusbygg` in editable mode
 
 
-## Introduction
+### Introduction
 
 A short introduction to RAG concepts can be found [here](src/tutorial/README.md)
 
