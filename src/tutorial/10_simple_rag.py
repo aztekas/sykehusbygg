@@ -1,4 +1,3 @@
-
 from langchain_community.document_loaders.recursive_url_loader import RecursiveUrlLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
@@ -11,17 +10,19 @@ import trafilatura
 ROOT = "https://kunnskapsbanken.sykehusbygg.no"
 DEPTH = 2
 
+
 def trafilatura_extractor(html: str) -> str:
     return trafilatura.extract(html) or ""
+
 
 print(f"Loading pages with depth={DEPTH} from {ROOT}")
 # loader = SitemapLoader(web_path=f"{ROOT}/sitemap.xml")
 loader = RecursiveUrlLoader(
     url=ROOT,
-    max_depth=DEPTH,                 # increase for deeper subpages
+    max_depth=DEPTH,  # increase for deeper subpages
     use_async=True,
-    extractor=trafilatura_extractor,     # robust HTML->text
-    prevent_outside=True,        # stay under ROOT
+    extractor=trafilatura_extractor,  # robust HTML->text
+    prevent_outside=True,  # stay under ROOT
     timeout=30,
 )
 
@@ -56,8 +57,10 @@ prompt = PromptTemplate.from_template(
     "Context:\n{context}\n\nQuestion: {question}\nAnswer:"
 )
 
+
 def join_docs(docs):
     return "\n\n".join(d.page_content for d in docs)
+
 
 print("Create RAG")
 llm = ChatOpenAI(model="gpt-4o-mini")
@@ -70,4 +73,8 @@ rag = (
 
 print("Query")
 # --- Query ---
-print(rag.invoke("Hva kan man finne i veilederen for tidligfasen i sykehusbyggprosjekter?"))
+print(
+    rag.invoke(
+        "Hva kan man finne i veilederen for tidligfasen i sykehusbyggprosjekter?"
+    )
+)

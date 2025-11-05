@@ -38,9 +38,7 @@ def excel_to_json(excel_path, output_path=None):
 
 
 if __name__ == "__main__":
-
     if not STANDARDROMKATALOGEN_JSON.exists():
         excel_to_json(katalog_fi, STANDARDROMKATALOGEN_JSON)
     else:
         print("✅ JSON already generated")
-

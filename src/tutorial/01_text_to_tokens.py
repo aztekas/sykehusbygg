@@ -12,4 +12,3 @@ for token in tokens:
     print(f"{token:>6}  {enc.decode([token])!r}")
 
 print(f"\nTotal tokens: {len(tokens)}")
-

@@ -5,7 +5,7 @@ import faiss  # pip install faiss-cpu
 d = 4  # dimension of vectors
 nb = 5  # number of database vectors
 np.random.seed(42)
-vectors = np.random.random((nb, d)).astype('float32')
+vectors = np.random.random((nb, d)).astype("float32")
 
 # --- 2. Create an index ---
 index = faiss.IndexFlatL2(d)  # L2 = Euclidean distance index
@@ -16,9 +16,9 @@ index.add(vectors)
 print(f"Number of vectors in index: {index.ntotal}")
 
 # --- 4. Create a query vector and search ---
-query = np.random.random((1, d)).astype('float32')
+query = np.random.random((1, d)).astype("float32")
 
-k = 2 # number of nearest neighbors to find
+k = 2  # number of nearest neighbors to find
 distances, indices = index.search(query, k)
 
 print("Query vector:", query)
