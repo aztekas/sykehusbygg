@@ -20,9 +20,11 @@ PoC/MVP på en RAG for standardromkatalogen mm
     
     `pipx install uv`
 
-3. Setup virtual environment
+3. Clone this repo and enter the repo folder (root)
 
-    Run this command in your repo root:
+4. Setup virtual environment
+
+    Run this command:
 
     `uv sync`
 
@@ -34,9 +36,9 @@ PoC/MVP på en RAG for standardromkatalogen mm
 
 ### Tools
 
-#### Makescript
+#### Makefile
 
-Run the help command to see available makescripts
+Run the help command to see available targets
 ```
 make help
 ```
