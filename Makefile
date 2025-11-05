@@ -7,14 +7,25 @@ ensure-clean-git:
 		exit 1; \
 	fi
 
-# help:
-# 	@echo "Available targets:"
-# 	@echo "  sync       - create/update venv and install dev deps (uses uv)"
-# 	@echo "  test       - run pytest using the project's venv"
-# 	@echo "  lint       - run ruff over src and tests"
-# 	@echo "  format     - run black to format src and tests"
-# 	@echo "  typecheck  - run mypy over src"
-# 	@echo "  clean      - remove python artifacts"
+help:
+	@echo "Usage: make <target>"
+	@echo "Common targets:"
+	@echo "  sync                - create/update .venv and install dev deps (uses uv)"
+	@echo "  test                - run pytest (uses uv-runner)"
+	@echo "  lint                - run ruff (with --fix) over src and tests"
+	@echo "  lint-and-commit     - run lint, then commit fixes if any (requires clean git tree)"
+	@echo "  ci-lint             - run ruff in CI style (no --fix)"
+	@echo "  format              - format code (uses ruff/black via uv)"
+	@echo "  format-and-commit   - format then commit fixes if any (requires clean git tree)"
+	@echo "  ci-format           - check formatting (CI mode)"
+	@echo "  lft                 - run sync, lint-and-commit and format-and-commit (dev convenience)"
+	@echo "  typecheck           - run mypy (currently commented out)"
+	@echo "  clean               - remove python build/test artifacts and .venv (commented out)"
+	@echo "  ensure-clean-git    - helper: fail if git working tree has uncommitted changes"
+	@echo "Examples:"
+	@echo "  make sync"
+	@echo "  make test"
+	@echo "  make lint-and-commit"
 
 sync:
 	@echo "Syncing dependencies with uv..."
