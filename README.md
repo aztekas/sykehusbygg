@@ -4,7 +4,7 @@ PoC/MVP på en RAG for standardromkatalogen mm
 
 ## Development
 
-### Setup
+### Environment
 
 1. Install `pipx` 
 
