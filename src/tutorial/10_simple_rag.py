@@ -1,5 +1,4 @@
 
-from langchain_community.document_loaders import SitemapLoader
 from langchain_community.document_loaders.recursive_url_loader import RecursiveUrlLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
