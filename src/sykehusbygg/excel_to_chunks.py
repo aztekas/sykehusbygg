@@ -15,9 +15,9 @@ for parent in current_file.parents:
 else:
     raise FileNotFoundError("Fant ikke prosjektrot med 'sykehusbygg/resource'")
 
-Default_NA_fillin_value = "ikke relevant for dette rommet"
-Chunk_title = "Rfp (hva er det)"
-Chunk_desc = "Dette er en beskrivelse av noen av funksjonene i et rom"
+DEFAULT_NA_FILLIN_VALUE = "ikke relevant for dette rommet"
+CHUNK_TITLE = "Rfp (hva er det)"
+CHUNK_DESC = "Dette er en beskrivelse av noen av funksjonene i et rom"
 
 # # set path
 # fo = Path("..").resolve()
@@ -43,7 +43,7 @@ RFP[ja_nei_columns] = RFP[ja_nei_columns].replace({True: 'Ja', False: 'Nei'})
 # fullfill NA
 # RFP = RFP.fillna("ikke relevant for dette rommet")
 
-RFP = RFP.fillna(Default_NA_fillin_value)
+RFP = RFP.fillna(DEFAULT_NA_FILLIN_VALUE)
 
 def format_row_chunks(df):
     prefixes = {}
@@ -56,8 +56,8 @@ def format_row_chunks(df):
         for prefix, cols in prefixes.items():
             chunk = [
                 "{",
-                f'    "{Chunk_title}",',
-                f'    "{Chunk_desc}",',
+                f'    "{CHUNK_TITLE}",',
+                f'    "{CHUNK_DESC}",',
                 f'    "Kode": "{row.get("Kode", "")}",',
                 f'    "Navn": "{row.get("Navn", "")}",',
                 f'    "Standard areal": "{row.get("Standard areal", "")}",',
@@ -116,6 +116,11 @@ for i, rom in enumerate(format_row_chunks(RFP)):
     if i >= 5:
         break
     rom_tekstblokker.append(rom)
+
+# print the first three chunks
+for chunk in rom_tekstblokker[:3]:
+    print(chunk)
+    print("=" * 60)
 
 # see it in text
 with open("rom_output2.txt", "w", encoding="utf-8") as f:
