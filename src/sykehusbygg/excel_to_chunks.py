@@ -55,6 +55,37 @@ def format_row_chunks(df):
     for _, row in df.iterrows():
         for prefix, cols in prefixes.items():
             chunk = [
+                f"{CHUNK_TITLE}",
+                f"{CHUNK_DESC}",
+                f"Kode: {row.get('Kode', '')}",
+                f"Navn: {row.get('Navn', '')}",
+                f"Standard areal: {row.get('Standard areal', '')}",
+                "",
+                f"Beskrivelse: {row.get('Beskrivelse', '')}",
+                "",
+                f"Under følger detaljer for {prefix}:"
+            ]
+
+            for col in cols:
+                if pd.notna(row[col]) and str(row[col]).strip():
+                    short_col = col.replace(prefix + ' - ', '')
+                    chunk.append(f"{short_col}: {row[col]}")
+
+            # add a blank line to make a chunk ending more visiable
+            chunk.append("")
+            yield "\n".join(chunk)
+
+
+""" def format_row_chunks(df):
+    prefixes = {}
+    for col in df.columns:
+        if ' - ' in col:
+            prefix = col.split(' - ')[0]
+            prefixes.setdefault(prefix, []).append(col)
+
+    for _, row in df.iterrows():
+        for prefix, cols in prefixes.items():
+            chunk = [
                 "{",
                 f'    "{CHUNK_TITLE}",',
                 f'    "{CHUNK_DESC}",',
@@ -73,7 +104,7 @@ def format_row_chunks(df):
                     chunk.append(f'    "{short_col}: {row[col]}",')
 
             chunk.append("}")
-            yield "\n".join(chunk)
+            yield "\n".join(chunk) """
 
 
 
